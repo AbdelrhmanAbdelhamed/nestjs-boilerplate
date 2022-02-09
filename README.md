@@ -7,7 +7,7 @@
 ## How to use
 
 1. git clone the repo
-2. Install docker and docker-compose in your machine
+2. Install mkcert, docker and docker-compose in your machine
 3. `cd` into the root directory and run the installer script `./install.sh`
 4. Now you can reach the api by access nginx gateway through `https://shortening.local.com/`
 5. Configurations can be found in `.env.local` (root directory)

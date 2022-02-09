@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "9d2a67f8-b9c6-48ab-b0bf-78bc32e1997c",
+		"name": "url-shortening-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "encode",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\": \"www.google.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/encode",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"encode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "decode",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/TTTfbAYqGh2HvjxMzAzck",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"TTTfbAYqGh2HvjxMzAzck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "statistics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/statistics/DRmtAWSHYKiTgpMWpaPhcv",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"statistics",
+						"DRmtAWSHYKiTgpMWpaPhcv"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://shortening.local.com"
+		}
+	]
+}

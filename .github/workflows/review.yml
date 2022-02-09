@@ -1,0 +1,44 @@
+  name: review
+  on: pull_request
+  jobs:
+    lint:
+      name: lint
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@master
+        - uses: actions/setup-node@master
+          with:
+            node-version: 16.x
+        - run: npm install
+        - run: npm run markdownlint
+        - run: npm run lint
+
+    test:
+      strategy:
+        matrix:
+          platform: [ubuntu-latest]
+          node: ['16.x']
+      name: test/node ${{ matrix.node }}/${{ matrix.platform }}
+      runs-on: ${{ matrix.platform }}
+      steps:
+        - uses: actions/checkout@master
+        - uses: actions/setup-node@master
+          with:
+            node-version: ${{ matrix.node }}
+        - run: npm install
+        - run: npm run test
+
+    coverage:
+      needs: [test, lint]
+      name: coverage
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@master
+        - uses: actions/setup-node@master
+          with:
+            node-version: 16.x
+        - run: npm install
+        - run: npm run test:cov
+        - uses: romeovs/lcov-reporter-action@v0.2.16
+          with:
+            github-token: ${{ secrets.COVERAGE_TOKEN }}

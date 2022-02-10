@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9d2a67f8-b9c6-48ab-b0bf-78bc32e1997c",
+		"_postman_id": "d9a4d53a-16b0-4ab4-80c4-653177290aa4",
 		"name": "url-shortening-service",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"url\": \"www.google.com\"\n}",
+					"raw": "{\n    \"urlName\": \"www.google.com\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -37,12 +37,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/TTTfbAYqGh2HvjxMzAzck",
+					"raw": "{{baseUrl}}/AMGgoj5kRXbQbXKuP1AZgt",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"TTTfbAYqGh2HvjxMzAzck"
+						"AMGgoj5kRXbQbXKuP1AZgt"
 					]
 				}
 			},

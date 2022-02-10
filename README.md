@@ -43,11 +43,12 @@ $ npm run test:cov
 - Import url-shortening-service.postman_collection into postman (found in the root dir)
 - Navigate to `https://shortening.local.com/docs`
 
-| endpoint 	| usage 	| gateway example 	|
-|---	|---	|---	|
-| /api/v1/urls/encode 	| given `{"urlName: "www.google.com"}` then it will generate a short id for it to be used later and redirected to the long `urlName` and save it in the db 	| https://shortening.local.com/encode 	|
-| /api/v1/urls/decode 	| given the url short `id` it will redirected to the long url `name` and will cache it for future requests in addtion to save visit country, visit count and increment total clicks 	| https://shortening.local.com/559WLYubxkoB7PmkvJeHUi 	|
-| /api/v1/urls/statistics 	| given a short id then it will return some url statistics like `totalClicks` and `visits` 	| https://shortening.local.com/statistics/559WLYubxkoB7PmkvJeHUi 	|
+| Endpoint  | Usage  | Gateway Example  |
+|--- |--- |--- |
+| /  | Health check  | <https://shortening.local.com>  |
+| /api/v1/urls/encode  | given `{"urlName: "www.google.com"}` then it will generate a short id for it to be used later and redirected to the long `urlName` and save it in the db  | <https://shortening.local.com/encode>  |
+| /api/v1/urls/decode  | given the url short `id` it will redirected to the long url `name` and will cache it in addtion to save vist country, visit count and inc total clicks  | <https://shortening.local.com/559WLYubxkoB7PmkvJeHUi>  |
+| /api/v1/urls/statistics  | given a short id then it will return some url statistics like `totalClicks` and `visits`  | <https://shortening.local.com/statistics/559WLYubxkoB7PmkvJeHUi>  |
 
 ## Stay in touch
 

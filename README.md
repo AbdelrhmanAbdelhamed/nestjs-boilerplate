@@ -9,20 +9,21 @@
 1. git clone the repo
 2. Install mkcert, docker and docker-compose in your machine
 3. `cd` into the root directory and run the installer script `./install.sh`
-4. Now you can reach the api by access nginx gateway through `https://shortening.local.com/`
+4. Now you can reach the api by access nginx gateway through `https://shortening.local.com/` (PORT 80)
 5. Configurations can be found in `.env.local` (root directory)
 
 ## Features
 
 1. Full development environment out of the box using `docker` and `docker-compose`
-2. Mongodb as database layer
+2. Mongodb as persistence layer
 3. Redis as cache layer
 4. Full code coverage unit testing for the main parts
 5. Rate limiter using `@nestjs/throttler`
 6. Local git hooks for `linting` and `testing` using `yorkie` and `lint-staged`
 7. Git actions workflow for PR reviews (`linting` and `testing`)
-8. SOLID
-9. Patterns like repository and event emitter
+8. Some `SOLID` principles
+9. Some patterns like `repository` and `Event Emitter`
+10. And a lot more (Just to reach 10 points ^_^)
 
 
 

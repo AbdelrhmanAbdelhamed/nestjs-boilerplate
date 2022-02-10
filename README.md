@@ -23,7 +23,7 @@
 7. Git actions workflow for PR reviews (`linting` and `testing`)
 8. Some `SOLID` principles
 9. Some patterns like `repository` and `Event Emitter`
-10. And a lot more (Just to reach 10 points ^_^)
+10. Logging all requests and responses
 
 
 

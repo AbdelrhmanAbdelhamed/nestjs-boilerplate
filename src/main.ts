@@ -10,13 +10,14 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as morgan from 'morgan-body';
 import helmet from 'helmet';
 import { AppModule } from './app.module';
+import { NestExpressApplication } from '@nestjs/platform-express';
 
 async function bootstrap() {
   const APP_NAME = process.env.npm_package_name || 'url-shortening-service';
   const APP_VERSION = process.env.npm_package_version || '1.0.0';
   const APP_PORT = process.env.APP_PORT || 8080;
 
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
   app.enableVersioning({
     type: VersioningType.URI,
@@ -74,6 +75,8 @@ async function bootstrap() {
       customCss: '.swagger-ui .topbar { display: none }',
     });
   }
+
+  app.enableCors();
 
   await app.listen(APP_PORT, '0.0.0.0');
   console.log(`url-shortening-service is running on: ${await app.getUrl()}`);

@@ -6,7 +6,13 @@ import { INestApplication } from '@nestjs/common';
 import { AppModule } from './../src/app.module';
 
 describe('Urls', () => {
-  let url = {
+  let app: INestApplication;
+  const urlsService = {
+    decode: () => ({ url: url.name }),
+    encode: () => ({ id: url.id }),
+    getStatistics: () => ({ totalClicks: url.totalClicks, visits: url.visits }),
+  };
+  const url = {
     encodeRequestCountry: 'OTHERS',
     totalClicks: 5,
     id: 'AEqzgnKpmj4LHDxoctDrHM',
@@ -14,12 +20,6 @@ describe('Urls', () => {
     visits: [{ count: 5, country: 'OTHERS' }],
     createdAt: new Date('2022-02-09T01:12:04.457Z'),
     updatedAt: new Date('2022-02-09T01:12:27.777Z'),
-  };
-  let app: INestApplication;
-  let urlsService = {
-    decode: () => ({ url: url.name }),
-    encode: () => ({ id: url.id }),
-    getStatistics: () => ({ totalClicks: url.totalClicks, visits: url.visits }),
   };
 
   beforeAll(async () => {

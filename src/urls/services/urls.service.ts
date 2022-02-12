@@ -1,5 +1,6 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { EventEmitter2 } from '@nestjs/event-emitter';
+import { UrlNotFoundException } from '../../exceptions';
 import { UrlsRepository } from '../repositories';
 import { IdentifierCreator } from '../models';
 import { InjectIdentifierCreatorToken } from '../decorators';
@@ -50,9 +51,7 @@ export class UrlsService {
     const url = await this.urlsRepository.findOneByKey({ key: id });
 
     if (!url) {
-      throw new NotFoundException(
-        `This is a 404 error, which means you've clicked on a bad link or entered an invalid URL. P.S. links are case sensitive.`,
-      );
+      throw new UrlNotFoundException();
     }
 
     this.eventEmitter.emitAsync(
@@ -73,9 +72,7 @@ export class UrlsService {
     const url = await this.urlsRepository.fetchOneByKey({ key: id });
 
     if (!url) {
-      throw new NotFoundException(
-        `This is a 404 error, which means you've entered an invalid URL. P.S. links are case sensitive.`,
-      );
+      throw new UrlNotFoundException();
     }
 
     return { totalClicks: url.totalClicks, visits: url.visits };

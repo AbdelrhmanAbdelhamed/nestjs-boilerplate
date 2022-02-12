@@ -1,14 +1,35 @@
+import * as path from 'path';
 import * as redisStore from 'cache-manager-redis-store';
-import { EventEmitterModule } from '@nestjs/event-emitter';
-import { Module, CacheModule, Logger } from '@nestjs/common';
+
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { APP_FILTER, APP_GUARD } from '@nestjs/core';
+import { Module, CacheModule, Logger } from '@nestjs/common';
+import { EventEmitterModule } from '@nestjs/event-emitter';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
-import { AppController } from './app.controller';
-import { AppRepository } from './app.repository';
-import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
+import {
+  AcceptLanguageResolver,
+  I18nJsonParser,
+  I18nModule,
+} from 'nestjs-i18n';
+
+// Exception Filters
+import {
+  AllExceptionsFilter,
+  BadRequestExceptionFilter,
+} from './exceptions/filters';
+
+// Modules
 import { UrlsModule } from './urls/urls.module';
-import { APP_GUARD } from '@nestjs/core';
+
+// Controllers
+import { AppController } from './app.controller';
+
+// Services
+import { AppService } from './app.service';
+
+// Repositories
+import { BaseRepository } from './base.repository';
 
 @Module({
   imports: [
@@ -60,16 +81,33 @@ import { APP_GUARD } from '@nestjs/core';
       }),
       inject: [ConfigService],
     }),
+    I18nModule.forRoot({
+      fallbackLanguage: 'en',
+      parser: I18nJsonParser,
+      parserOptions: {
+        path: path.join(__dirname, '/i18n/'),
+        watch: true,
+      },
+      resolvers: [AcceptLanguageResolver],
+    }),
     UrlsModule,
   ],
   controllers: [AppController],
   providers: [
     Logger,
-    AppRepository,
+    BaseRepository,
     AppService,
     {
       provide: APP_GUARD,
       useClass: ThrottlerGuard,
+    },
+    {
+      provide: APP_FILTER,
+      useClass: AllExceptionsFilter,
+    },
+    {
+      provide: APP_FILTER,
+      useClass: BadRequestExceptionFilter,
     },
   ],
 })

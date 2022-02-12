@@ -1,0 +1,5 @@
+{
+    "INTERNAL_SERVER_MESSAGE": "خطأ داخلي في الخادم",
+    "INVALID_REQUEST_MESSAGE": "طلب غير صالح",
+    "URL_NOT_FOUND_MESSAGE": " هذا خطأ 404 معناه انك ضغطت على رابط سيئ أو عنوان خاطئ"
+}

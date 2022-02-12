@@ -46,7 +46,7 @@ async function bootstrap() {
       whitelist: true,
       exceptionFactory: (errors: ValidationError[]) => {
         return new BadRequestException({
-          message: `Invalid request`,
+          message: `exceptions.INVALID_REQUEST_MESSAGE`,
           errors: errors.reduce(
             (allConstraints, error) => [
               ...allConstraints,

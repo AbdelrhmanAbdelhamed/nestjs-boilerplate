@@ -3,10 +3,10 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Cache } from 'cache-manager';
 import { Url, UrlDocument } from '../schemas';
-import { AppRepository } from '../../app.repository';
+import { BaseRepository } from '../../base.repository';
 
 @Injectable()
-export class UrlsRepository implements AppRepository<Url> {
+export class UrlsRepository implements BaseRepository<Url> {
   constructor(
     @Inject(CACHE_MANAGER) private cacheManager: Cache,
     @InjectModel(Url.name) private readonly urlModel: Model<UrlDocument>,

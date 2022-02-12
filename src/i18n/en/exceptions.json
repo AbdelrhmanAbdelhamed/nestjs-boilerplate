@@ -1,0 +1,5 @@
+{
+    "INTERNAL_SERVER_MESSAGE": "Internal server error",
+    "INVALID_REQUEST_MESSAGE": "Invalid request",
+    "URL_NOT_FOUND_MESSAGE": "This is a 404 error, which means you've clicked on a bad link or entered an invalid URL. P.S. links are case sensitive."
+}

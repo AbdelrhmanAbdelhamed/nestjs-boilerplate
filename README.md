@@ -24,6 +24,7 @@
 8. Some `SOLID` principles
 9. Some patterns like `repository` and `Event Emitter`
 10. Logging all requests and responses
+11. i18n translation support
 
 
 

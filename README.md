@@ -8,7 +8,7 @@
 
 1. git clone the repo
 2. Install mkcert, docker and docker-compose in your machine
-3. `cd` into the root directory and run the installer script `./install.sh`
+3. `cd` into the root directory and run the installer script `./install.sh` (Support Unix based OS only)
 4. Now you can reach the api by access nginx gateway through `https://shortening.local.com/` (PORT 80)
 5. Configurations can be found in `.env.local` (root directory)
 
